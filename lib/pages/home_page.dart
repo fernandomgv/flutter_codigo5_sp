@@ -107,8 +107,7 @@ class _HomePageState extends State<HomePage> {
                   children: [
                     CircleAvatar(
                       radius: 32,
-                      backgroundImage: NetworkImage(
-                          "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dXNlcnxlbnwwfHwwfHw%3D&w=1000&q=80"),
+                      backgroundImage: AssetImage('assets/images/fmogollon.jpg'),
                     ),
                     Text(
                       "Fernando Mogollón",
@@ -166,96 +165,98 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              "Settings",
-              style: TextStyle(
-                fontSize: 32,
-                fontWeight: FontWeight.w500,
-                color: Color(0xff424242),
-              ),
-            ),
-            const SizedBox(
-              height: 10.0,
-            ),
-            TextField(
-              controller: this.tcname,
-              decoration: InputDecoration(hintText: "Full name"),
-            ),
-            const SizedBox(
-              height: 20.0,
-            ),
-            TextField(
-              controller: this.tcaddres,
-              decoration: InputDecoration(hintText: "Address"),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            SwitchListTile(
-               title: Text("Dark Mode"),
-                value: this.drakMode,
-                onChanged: ( bool value){
-                 this.drakMode = value;
-                 setState(() {
-
-                 });
-                }
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-        Text("Gender"),
-            const SizedBox(
-              height: 10,
-            ),
-            RadioListTile(
-              title: Text("Male"),
-                value: 1,
-                groupValue: this.gender,
-                onChanged: (int? value){
-                this.gender = value!;
-                print( this.gender );
-                setState(() {
-
-                });
-                }
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "Settings",
+                style: TextStyle(
+                  fontSize: 32,
+                  fontWeight: FontWeight.w500,
+                  color: Color(0xff424242),
                 ),
-            RadioListTile(
-                title: Text("Female"),
-                value: 2,
-                groupValue: this.gender,
-                onChanged: (int? value){
+              ),
+              const SizedBox(
+                height: 10.0,
+              ),
+              TextField(
+                controller: this.tcname,
+                decoration: InputDecoration(hintText: "Full name"),
+              ),
+              const SizedBox(
+                height: 20.0,
+              ),
+              TextField(
+                controller: this.tcaddres,
+                decoration: InputDecoration(hintText: "Address"),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              SwitchListTile(
+                 title: Text("Dark Mode"),
+                  value: this.drakMode,
+                  onChanged: ( bool value){
+                   this.drakMode = value;
+                   setState(() {
+
+                   });
+                  }
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+          Text("Gender"),
+              const SizedBox(
+                height: 10,
+              ),
+              RadioListTile(
+                title: Text("Male"),
+                  value: 1,
+                  groupValue: this.gender,
+                  onChanged: (int? value){
                   this.gender = value!;
                   print( this.gender );
                   setState(() {
 
                   });
-                }
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            SizedBox(
-                width: double.infinity,
-                child:
-                    ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12)
-                        )
-                      ),
-                        onPressed: () {
-                        this._saveData();
-                        },
-                        child: Text("Save data")
-                    )
-            )
-          ],
+                  }
+                  ),
+              RadioListTile(
+                  title: Text("Female"),
+                  value: 2,
+                  groupValue: this.gender,
+                  onChanged: (int? value){
+                    this.gender = value!;
+                    print( this.gender );
+                    setState(() {
+
+                    });
+                  }
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              SizedBox(
+                  width: double.infinity,
+                  child:
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12)
+                          )
+                        ),
+                          onPressed: () {
+                          this._saveData();
+                          },
+                          child: Text("Save data")
+                      )
+              )
+            ],
+          ),
         ),
       ),
 
